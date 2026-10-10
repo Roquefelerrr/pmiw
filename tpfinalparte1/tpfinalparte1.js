@@ -3,26 +3,31 @@ let imagenes = [];
 let botonD1;
 let botonD2;
 let botonContinuarImg; 
-let imagenTitulo; // Variable para la imagen del título
+let imagenTitulo;
+
+let cred1;
+let cred2;
+let cred3;
 
 let tiempoInicioCreditos = 0;
 let subEstadoCreditos = 0;
 
-let textos = [];
-textos[0] = ""; 
-textos[1] = "Vas a visitar a tu vecino, el profesor Zinka, un científico medio loco. Te cuenta que inventó una máquina para viajar al hiperespacio, un lugar donde el tiempo y el espacio funcionan de forma extraña.";
-textos[2] = "Zinka prende la maquina que hace un ruido molesto. El aire se empieza a ver borroso, como cuando hace mucho calor en la ruta. De la nada Zinka da un paso hacia esa cosa borrosa y desaparece. La máquina queda prendida y esa especie de portal empieza a crecer.";
-textos[3] = "El portal ya se está tragando los muebles del laboratorio. Tenés que decidir rápido antes de que la casa entera desaparezca o la máquina se apague y pierdas a Zinka para siempre.";
-textos[4] = "Sentís que caés durante semanas, aunque solo pasaron dos segundos. Los colores suenan y los ruidos se ven. Finalmente, llegás a un lugar completamente blanco y brillante.";
-textos[5] = "Unos seres de luz te hablan por telepatía y te advierten que no podés sobrevivir mucho tiempo ahí. Te ofrecen dos formas de escapar.";
-textos[6] = "Intentás volver a tu realidad con tanta fuerza que rompés la cuarta pared. El cielo se convierte en letras gigantes y caés dentro de una computadora, sobre un documento abierto que contiene tu propia historia.";
-textos[7] = "Frente a la pantalla aparece Edward Packard, el autor de este cuento. Te pide perdón por meterte en este quilombo de decisiones y te explica que, hagas lo que hagas, siempre terminás dentro de su historia. Después, cierra el documento y te borra de la existencia. FIN.";
-textos[8] = "Llegás a una Tierra alternativa que parece normal, pero descubrís que el agua cae para arriba y tu perro tiene tres ojos. Abrís un poco la puerta y ves a Zinka, junto a una máquina idéntica a la que había desaparecido en tu realidad.";
-textos[9] = "Zafaste de morir en el hiperespacio, pero quedaste varado en esta dimensión rarísima para siempre. Ahora vas a tener que acostumbrarte a vivir el resto de tu vida en un mundo donde absolutamente nada tiene sentido. FIN";
-textos[10] = "Desenchufás la máquina y el portal desaparece. Sin embargo, tu reflejo empieza a moverse un segundo después que vos, como si la realidad tuviera delay.";
-textos[11] = "Encontrás una nota que dice: «No salgas de la habitacion. La paradoja te va a atrapar». En ese momento, escuchás a Zinka pidiendo ayuda. No sabés quién escribió la nota ni cómo llegó hasta ahí.";
-textos[12] = "Salís de la habitacion, pero Zinka no está. En su lugar, el cielo empieza a llenarse de letras gigantes y el suelo desaparece abajo de tus pies. Sentís que la realidad se está convirtiendo en una historia escrita.";
-textos[13] = "Te quedás encerrado, pero la realidad ya está rota desde que desenchufaste la máquina. Todo se pixela y te convertís en un punto matemático que queda flotando en el vacío para siempre. FIN.";
+let textos = [
+  "", 
+  "Vas a visitar a tu vecino, el profesor Zinka, un científico medio loco. Te cuenta que inventó una máquina para viajar al hiperespacio, un lugar donde el tiempo y el espacio funcionan de forma extraña.",
+  "Zinka prende la maquina que hace un ruido molesto. El aire se empieza a ver borroso, como cuando hace mucho calor en la ruta. De la nada Zinka da un paso hacia esa cosa borrosa y desaparece. La máquina queda prendida y esa especie de portal empieza a crecer.",
+  "El portal ya se está tragando los muebles del laboratorio. Tenés que decidir rápido antes de que la casa entera desaparezca o la máquina se apague y pierdas a Zinka para siempre.",
+  "Sentís que caés durante semanas, aunque solo pasaron dos segundos. Los colores suenan y los ruidos se ven. Finalmente, llegás a un lugar completamente blanco y brillante.",
+  "Unos seres de luz te hablan por telepatía y te advierten que no podés sobrevivir mucho tiempo ahí. Te ofrecen dos formas de escapar.",
+  "Intentás volver a tu realidad con tanta fuerza que rompés la cuarta pared. El cielo se convierte en letras gigantes y caés dentro de una computadora, sobre un documento abierto que contiene tu propia historia.",
+  "Frente a la pantalla aparece Edward Packard, el autor de este cuento. Te pide perdón por meterte en este quilombo de decisiones y te explica que, hagas lo que hagas, siempre terminás dentro de su historia. Después, cierra el documento y te borra de la existencia. FIN.",
+  "Llegás a una Tierra alternativa que parece normal, pero descubrís que el agua cae para arriba y tu perro tiene tres ojos. Abrís un poco la puerta y ves a Zinka, junto a una máquina idéntica a la que había desaparecido en tu realidad.",
+  "Zafaste de morir en el hiperespacio, pero quedaste varado en esta dimensión rarísima para siempre. Ahora vas a tener que acostumbrarte a vivir el resto de tu vida en un mundo donde absolutamente nada tiene sentido. FIN",
+  "Desenchufás la máquina y el portal desaparece. Sin embargo, tu reflejo empieza a moverse un segundo después que vos, como si la realidad tuviera delay.",
+  "Encontrás una nota que dice: «No salgas de la habitacion. La paradoja te va a atrapar». En ese momento, escuchás a Zinka pidiendo ayuda. No sabés quién escribió la nota ni cómo llegó hasta ahí.",
+  "Salís de la habitacion, pero Zinka no está. En su lugar, el cielo empieza a llenarse de letras gigantes y el suelo desaparece abajo de tus pies. Sentís que la realidad se está convirtiendo en una historia escrita.",
+  "Te quedás encerrado, pero la realidad ya está rota desde que desenchufaste la máquina. Todo se pixela y te convertís en un punto matemático que queda flotando en el vacío para siempre. FIN."
+];
 
 function preload() {
   imagenes[0] = loadImage('data/p0.jpg');
@@ -40,15 +45,14 @@ function preload() {
   imagenes[12] = loadImage('data/p12.jpg');
   imagenes[13] = loadImage('data/p13.jpg');
 
-  imagenes['cred1'] = loadImage('data/credito1.png');
-  imagenes['cred2'] = loadImage('data/credito2.png');
-  imagenes['cred3'] = loadImage('data/credito3.png');
+  cred1 = loadImage('data/credito1.png');
+  cred2 = loadImage('data/credito2.png');
+  cred3 = loadImage('data/credito3.png');
 
   botonD1 = loadImage('data/botonD1.png');
   botonD2 = loadImage('data/botonD2.png');
   botonContinuarImg = loadImage('data/botonInicialContinuar.png');
   
-  // Cargamos la imagen del título en PNG
   imagenTitulo = loadImage('data/titulo.png');
 }
 
@@ -67,13 +71,10 @@ function draw() {
       rect(0, 0, 800, 450);
     }
     
-    // Dibujamos la imagen del título en lugar del rectángulo y los textos viejos
     if (imagenTitulo) {
       image(imagenTitulo, 200, 90, 400, 160);
     }
-    
-    // Usamos el botón con la misma función de continuar para el inicio
-    dibujarBotonContinuarPersonalizado("INICIAR JUEGO", 300, 330);
+    botonSimple("INICIAR JUEGO", 300, 330);
   } 
   else if (estado === 14) {
     let tiempoTranscurrido = millis() - tiempoInicioCreditos;
@@ -86,41 +87,41 @@ function draw() {
       subEstadoCreditos = 3;
     }
 
-    if (subEstadoCreditos === 1 && imagenes['cred1']) {
-      image(imagenes['cred1'], 0, 0, 800, 450);
-    } else if (subEstadoCreditos === 2 && imagenes['cred2']) {
-      image(imagenes['cred2'], 0, 0, 800, 450);
-    } else if (subEstadoCreditos === 3 && imagenes['cred3']) {
-      image(imagenes['cred3'], 0, 0, 800, 450);
-      dibujarBotonContinuarPersonalizado("REINICIAR", 300, 370);
+    if (subEstadoCreditos === 1 && cred1) {
+      image(cred1, 0, 0, 800, 450);
+    } else if (subEstadoCreditos === 2 && cred2) {
+      image(cred2, 0, 0, 800, 450);
+    } else if (subEstadoCreditos === 3 && cred3) {
+      image(cred3, 0, 0, 800, 450);
+      botonSimple("REINICIAR", 300, 370);
     }
   }
-  else {
-    if (estado === 1 || estado === 2 || estado === 4 || estado === 6 || estado === 7 || estado === 9 || estado === 10 || estado === 12 || estado === 13) {
-      dibujarPantallaContinuar(); 
-    } 
-    else if (estado === 3) {
-      dibujarPantallaDecision("Tirarse al portal", "Desenchufar máquina");
-    } 
-    else if (estado === 5) {
-      dibujarPantallaDecision("Usar energía", "Universo paralelo");
-    }
-    else if (estado === 8) {
-      dibujarPantallaDecision("Aceptar encierro", "Buscar a Zinka");
-    }
-    else if (estado === 11) {
-      dibujarPantallaDecision("Salir a ayudar", "Quedarse encerrado");
-    }
+  else if (estado === 1 || estado === 2 || estado === 4 || estado === 6 || estado === 7 || estado === 9 || estado === 10 || estado === 12 || estado === 13) {
+    pantallaContinuar(); 
+  } 
+  else if (estado === 3) {
+    pantallaDecision("Tirarse al portal", "Desenchufar máquina");
+  } 
+  else if (estado === 5) {
+    pantallaDecision("Usar energía", "Universo paralelo");
+  }
+  else if (estado === 8) {
+    pantallaDecision("Aceptar encierro", "Buscar a Zinka");
+  }
+  else if (estado === 11) {
+    pantallaDecision("Salir a ayudar", "Quedarse encerrado");
   }
 }
 
-function dibujarPantallaContinuar() {
-  dibujarFondoYTexto();
-  dibujarBotonContinuarPersonalizado("CONTINUAR", 300, 350);
+function pantallaContinuar() {
+  fondoTexto();
+  botonSimple("CONTINUAR", 300, 350);
 }
 
-function dibujarBotonContinuarPersonalizado(textoBoton, posX, posY) {
-  let tamX = 200; let tamY = 45;
+function botonSimple(textoBoton, posX, posY) {
+  let tamX = 200; 
+  let tamY = 45;
+  
   push();
   if (overMouse(posX, posY, tamX, tamY)) tint(220, 240, 255); 
   else noTint();
@@ -134,15 +135,16 @@ function dibujarBotonContinuarPersonalizado(textoBoton, posX, posY) {
   pop();
 }
 
-function dibujarPantallaDecision(txtIzq, txtDer) {
-  dibujarFondoYTexto();
+function pantallaDecision(txtIzq, txtDer) {
+  fondoTexto();
   boton(100, 340, 280, 60, txtIzq, botonD1, botonD2);
   boton(420, 340, 280, 60, txtDer, botonD1, botonD2);
 }
 
-function dibujarFondoYTexto() {
-  if (imagenes[estado]) image(imagenes[estado], 0, 0, 800, 450);
-  else {
+function fondoTexto() {
+  if (imagenes[estado]) {
+    image(imagenes[estado], 0, 0, 800, 450);
+  } else {
     fill(40); rect(0, 0, 800, 450); 
     fill(255); textSize(20); textAlign(CENTER, CENTER);
     text("(Imagen p" + estado + ".jpg pendiente de carga)", width / 2, 225);
@@ -177,67 +179,65 @@ function overMouse(posX, posY, tamX, tamY) {
 
 function mousePressed() {
   if (estado === 0) {
-    if (overMouse(300, 330, 200, 45)) {
+    if (overMouse(300, 330, 200, 45)) { 
       estado = 1; 
     }
   } 
   else if (estado === 14) {
-    if (subEstadoCreditos === 3 && overMouse(300, 370, 200, 45)) {
-      estado = 0;
+    if (subEstadoCreditos === 3 && overMouse(300, 370, 200, 45)) { 
+      estado = 0; 
     }
   }
-  else {
-    if (estado === 1) { 
-      if (overMouse(300, 350, 200, 45)) { estado = 2; }
-    } 
-    else if (estado === 2) { 
-      if (overMouse(300, 350, 200, 45)) { estado = 3; }
-    } 
-    else if (estado === 3) { 
-      if (overMouse(100, 340, 280, 60)) { estado = 4; } 
-      if (overMouse(420, 340, 280, 60)) { estado = 10; } 
+  else if (estado === 1) { 
+    if (overMouse(300, 350, 200, 45)) { estado = 2; }
+  } 
+  else if (estado === 2) { 
+    if (overMouse(300, 350, 200, 45)) { estado = 3; }
+  } 
+  else if (estado === 3) { 
+    if (overMouse(100, 340, 280, 60)) { estado = 4; }  
+    if (overMouse(420, 340, 280, 60)) { estado = 10; }  
+  }
+  else if (estado === 4) { 
+    if (overMouse(300, 350, 200, 45)) { estado = 5; }
+  }
+  else if (estado === 5) {
+    if (overMouse(100, 340, 280, 60)) { estado = 6; }
+    if (overMouse(420, 340, 280, 60)) { estado = 8; }
+  }
+  else if (estado === 6) { 
+    if (overMouse(300, 350, 200, 45)) { estado = 7; }
+  }
+  else if (estado === 7) {
+    if (overMouse(300, 350, 200, 45)) { 
+      estado = 14; 
+      tiempoInicioCreditos = millis(); 
     }
-    else if (estado === 4) {
-      if (overMouse(300, 350, 200, 45)) { estado = 5; }
+  }
+  else if (estado === 8) {
+    if (overMouse(100, 340, 280, 60)) { estado = 9; }
+    if (overMouse(420, 340, 280, 60)) { estado = 11; }
+  }
+  else if (estado === 9) {
+    if (overMouse(300, 350, 200, 45)) { 
+      estado = 14; 
+      tiempoInicioCreditos = millis(); 
     }
-    else if (estado === 5) {
-      if (overMouse(100, 340, 280, 60)) { estado = 6; }
-      if (overMouse(420, 340, 280, 60)) { estado = 8; }
-    }
-    else if (estado === 6) {
-      if (overMouse(300, 350, 200, 45)) { estado = 7; }
-    }
-    else if (estado === 7) {
-      if (overMouse(300, 350, 200, 45)) { 
-        estado = 14; 
-        tiempoInicioCreditos = millis(); 
-      }
-    }
-    else if (estado === 8) {
-      if (overMouse(100, 340, 280, 60)) { estado = 9; }
-      if (overMouse(420, 340, 280, 60)) { estado = 11; }
-    }
-    else if (estado === 9) {
-      if (overMouse(300, 350, 200, 45)) { 
-        estado = 14; 
-        tiempoInicioCreditos = millis(); 
-      }
-    }
-    else if (estado === 10) {
-      if (overMouse(300, 350, 200, 45)) { estado = 11; }
-    }
-    else if (estado === 11) {
-      if (overMouse(100, 340, 280, 60)) { estado = 12; }
-      if (overMouse(420, 340, 280, 60)) { estado = 13; }
-    }
-    else if (estado === 12) {
-      if (overMouse(300, 350, 200, 45)) { estado = 7; }
-    }
-    else if (estado === 13) {
-      if (overMouse(300, 350, 200, 45)) { 
-        estado = 14; 
-        tiempoInicioCreditos = millis(); 
-      }
+  }
+  else if (estado === 10) { 
+    if (overMouse(300, 350, 200, 45)) { estado = 11; }
+  }
+  else if (estado === 11) {
+    if (overMouse(100, 340, 280, 60)) { estado = 12; }
+    if (overMouse(420, 340, 280, 60)) { estado = 13; }
+  }
+  else if (estado === 12) { 
+    if (overMouse(300, 350, 200, 45)) { estado = 7; }
+  }
+  else if (estado === 13) {
+    if (overMouse(300, 350, 200, 45)) { 
+      estado = 14; 
+      tiempoInicioCreditos = millis(); 
     }
   }
 }
