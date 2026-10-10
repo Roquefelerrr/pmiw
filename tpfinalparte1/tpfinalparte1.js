@@ -1,3 +1,7 @@
+//Roque de andrea
+// https://www.youtube.com/watch?v=wUvHVJF-FII
+// comision 5
+
 let estado = 0;
 let imagenes = [];
 let botonD1;
