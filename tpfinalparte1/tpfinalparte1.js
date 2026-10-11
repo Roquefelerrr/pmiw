@@ -1,8 +1,6 @@
 //Roque de andrea
 // Link de youtube: https://www.youtube.com/watch?v=wUvHVJF-FII
 // comision 5
-// link a el flujo de diagrama: https://miro.com/welcomeonboard/dE9RRytlWkJEYVhlTDBGcGd4ZGErWHhwOUVpNTJtZGFCMTJGNVA5NTZiOUUwMGIzY2E5YVpLdmhkc3FFaHVuU1BkTFp1SXJJaFlieVdMUXJpa3ZiVkI0UnFLRnMrdU9uMG1VdjhPUG1ZSEVRRlFyR1Y3Z1RwbS93RlF6K1VhUDVyVmtkMG5hNDA3dVlncnBvRVB2ZXBnPT0hdjE=?share_link_id=839052852420
-//dejamosel link por que no se ve vlaro el pdf
 let estado = 0;
 let imagenes = [];
 let botonD1;
