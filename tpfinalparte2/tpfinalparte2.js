@@ -1,4 +1,4 @@
-//video youtube https://youtu.be/Tn4T2GSzIYM
+//video youtube https://www.youtube.com/watch?v=u9hu7j9i2SQ
 //variables globales
 let juego;
 let imagenesJugador = [];
